@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)             //IDENTITY so that to have separate independent ID
     Integer id;
 
     private String description;

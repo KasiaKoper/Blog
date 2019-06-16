@@ -16,7 +16,15 @@ public class Post {
     private Integer id;
     private String content;
 
-    @OneToMany(mappedBy = "post")           //it is required to say which field in Comment class this should be related to
-    private List<Comment> comments=new ArrayList<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    //it is required to say which field in Comment class this should be related to
+    private List<Comment> comments = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", content='" + content +"}";
+    }
 
 }

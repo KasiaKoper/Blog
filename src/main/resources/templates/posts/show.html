@@ -17,12 +17,14 @@
             <label>Content</label>
             <input th:field="*{description}" type="text"
                    class="form-control input-small"
-                   placeholder="Comment"> required
+                   placeholder="Comment" required>
+            <input th:field="*{post}" type="hidden"
+                   class="form-control input-small"
+                   placeholder="Comment" required>
         </div>
         <button type="submit" class="btn btn-primary btn-lg ">Dodaj</button>
     </form>
 </div>
-
 
 </body>
 </html>
