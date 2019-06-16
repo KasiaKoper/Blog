@@ -17,6 +17,8 @@ public class Comment {
     @ManyToOne                      // relation type
     private Post post;              //comment is for the specific post
 
-
-
+    @Override
+    public String toString() {
+        return getDescription();
+    }
 }

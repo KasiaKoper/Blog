@@ -25,7 +25,7 @@ public class PostController {
     }
 
     @PostMapping("")
-    public String createPost(@ModelAttribute Post post, ModelMap modelMap){
+    public String createPost(@ModelAttribute Post post,ModelMap modelMap){
         postRepository.save(post);
         return "redirect:/posts/"+post.getId();
     }
@@ -37,7 +37,7 @@ public class PostController {
         Comment comment=new Comment();
         comment.setPost(post);
         modelMap.put("comment", comment);
+        modelMap.put("comments",post.getComments());
         return "posts/show";
     }
-
 }
