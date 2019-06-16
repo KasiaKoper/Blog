@@ -15,7 +15,7 @@
     <form th:object="${post}" th:action="@{/posts}" th:method="post">
         <div class="form-group">
             <label>Content</label>
-            <input th:field="*{content}" required type="text"
+            <input th:field="*{content}" type="text"
                    class="form-control input-small"
                    placeholder="Content"> required
         </div>
