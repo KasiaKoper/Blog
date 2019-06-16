@@ -5,10 +5,7 @@ import com.example.blog.model.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/posts")
 @Controller
@@ -30,10 +27,13 @@ public class PostController {
     @PostMapping("")
     public String createPost(@ModelAttribute Post post, ModelMap modelMap){
         postRepository.save(post);
-        modelMap.put("post",post);
-        return "posts/show";
+        return "redirect:/posts/"+post.getId();
     }
 
-
+    @GetMapping("/{id}")
+    public String showPost(@PathVariable Integer id, ModelMap modelMap){
+        modelMap.put("post",postRepository.findById(id).get());
+        return "posts/show";
+    }
 
 }
